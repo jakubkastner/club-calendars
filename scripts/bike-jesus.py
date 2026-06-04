@@ -4,7 +4,9 @@ from datetime import datetime, date
 import json
 import os
 
-ARCHIVE_FILE = "archive.json"
+ARCHIVE_FILE = "bike-jesus-archive.json"
+CALENDAR_FILE = "bike-jesus-calendar.ics"
+TARGET_URL = "https://bikejesus.com/events"
 
 def load_archive():
     # Load previously saved events from the local JSON archive file
@@ -30,7 +32,7 @@ def save_archive(archive_data):
 
 def fetch_bike_jesus_events():
     # Ingest the dynamic event list from the live endpoint
-    url = "https://bikejesus.com/events"
+    url = TARGET_URL
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
         "Accept": "application/json"
@@ -127,7 +129,7 @@ def create_ical_calendar(archive_data):
             continue
 
     # Tailored to write into calendar.ics as requested
-    output_filename = 'calendar.ics'
+    output_filename = CALENDAR_FILE
     with open(output_filename, 'w', encoding='utf-8') as f:
         f.writelines(cal.serialize_iter())
 

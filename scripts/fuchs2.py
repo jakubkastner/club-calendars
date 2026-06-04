@@ -5,8 +5,8 @@ import re
 from datetime import datetime
 from ics import Calendar, Event
 
-ARCHIVE_FILE = "archive.json"
-CALENDAR_FILE = "calendar.ics"
+ARCHIVE_FILE = "fuchs2-archive.json"
+CALENDAR_FILE = "fuchs2-calendar.ics"
 TARGET_URL = "https://www.fuchs2.cz/shows"
 
 def load_archive():
