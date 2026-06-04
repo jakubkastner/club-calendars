@@ -112,8 +112,45 @@ def create_ical_calendar(archive_data):
             description_parts.append(f"Website Info: https://bikejesus.com/#event-{ev_id}")
 
             event.description = "\n\n".join(description_parts)
-            event.location = "Bike Jesus, Ostrov Štvanice 1125, Prague, Czechia"
+            event.location = "Bike Jesus, Ostrov Štvanice 1125, Prague, Czech republic"
 
             if raw_date:
                 clean_date_str = raw_date.split("T")[0]
-                parsed_date = datetime.strptime(clean_date_str,
+                parsed_date = datetime.strptime(clean_date_str, "%Y-%m-%d")
+
+                event.begin = parsed_date
+                event.make_all_day()
+                cal.events.add(event)
+
+        except Exception as event_err:
+            print(f"Skipped parsing archived event item {ev_id} due to processing error: {event_err}")
+            continue
+
+    # Tailored to write into calendar.ics as requested
+    output_filename = 'calendar.ics'
+    with open(output_filename, 'w', encoding='utf-8') as f:
+        f.writelines(cal.serialize_iter())
+
+    print(f"Success: Dynamic iCal database compiled and dumped to '{output_filename}'")
+
+if __name__ == "__main__":
+    print("[START] Running Bike Jesus Persistent History Sync Engine...")
+
+    # 1. Load historical database from GitHub storage
+    master_archive = load_archive()
+
+    # 2. Fetch fresh rolling timeline from the API
+    live_api_data = fetch_bike_jesus_events()
+    print(f"[INFO] Total live records fetched from API: {len(live_api_data)}")
+
+    # 3. Merge data, preserve history, drop dropped upcoming shows
+    updated_archive = merge_and_sync(master_archive, live_api_data)
+    print(f"[INFO] Total master archive size after synchronization: {len(updated_archive)}")
+
+    # 4. Save the updated persistent database back
+    save_archive(updated_archive)
+
+    # 5. Build the complete calendar file
+    create_ical_calendar(updated_archive)
+
+    print("[END] Operational lifecycle closed.")

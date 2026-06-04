@@ -25,12 +25,16 @@ jobs:
         pip install requests ics
 
     - name: Execute API ingestion script
-      run: python update.py
+      # Changing directory to bike-jesus and running the updated script name
+      run: |
+        cd bike-jesus
+        python get.py
 
     - name: Commit and push updated files (Calendar + Archive)
+      # Working paths adjusted to target your specific folder structure
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action Bot"
-        git add calendar.ics archive.json
+        git add bike-jesus/calendar.ics bike-jesus/archive.json
         git commit -m "Automated database & calendar update [skip ci]" || exit 0
         git push
