@@ -114,11 +114,68 @@ def parse_wix_events(html_content):
     print(f"[DEBUG] Validation complete. Total valid unique events prepared: {len(valid_events)}")
     return valid_events
 
+def discover_rich_descriptions(archive_data):
+    """Deep scans event detail pages to fetch and cache full rich descriptions."""
+    print("Initiating deep scan pass for missing rich event descriptions...")
+    updated_count = 0
+
+    for show_id, item in archive_data.items():
+        # Skip crawling if we already cached a proper rich description for this event
+        if item.get("scraped_rich_description"):
+            continue
+
+        slug = item.get("slug")
+        if not slug:
+            continue
+
+        detail_url = f"https://www.fuchs2.cz/events/{slug}"
+        print(f"[DEEP SCAN] Fetching full event details from: {detail_url}")
+        detail_html = fetch_html_content(detail_url)
+
+        if not detail_html:
+            continue
+
+        # Parse the details using the same warmup data algorithm to find the full description
+        detail_events = parse_wix_events(detail_html)
+        rich_desc = None
+
+        if detail_events:
+            for d_ev in detail_events:
+                rich_desc = d_ev.get("description") or d_ev.get("about") or d_ev.get("shortDescription")
+                if rich_desc and len(rich_desc) > 5:
+                    break
+
+        # Fallback to direct regex if JSON extraction is non-standard on specific event detail
+        if not rich_desc:
+            desc_match = re.search(r'<p[^>]* class="[^"]*event-description[^"]*"[^>]*>(.*?)</p>', detail_html, re.DOTALL)
+            if desc_match:
+                rich_desc = desc_match.group(1).strip()
+
+        if rich_desc:
+            # Safe text formatting: remove heavy HTML markup, clean trailing artifacts
+            clean_text = re.sub('<[^<]+?>', '', str(rich_desc)).strip()
+            # Replace common HTML entity residues if any
+            clean_text = clean_text.replace('&nbsp;', ' ').replace('&amp;', '&')
+
+            print(f"[DEEP SCAN] Rich description successfully extracted and cached.")
+            archive_data[show_id]["scraped_rich_description"] = clean_text
+            updated_count += 1
+
+    if updated_count > 0:
+        print(f"[INFO] Deep scan completed. Enhanced {updated_count} event records with descriptions.")
+    else:
+        print("[INFO] Deep scan completed. No missing descriptions found.")
+    return archive_data
+
 def merge_and_sync(archive, live_events):
     for show in live_events:
         show_id = str(show.get("_id") or show.get("id") or "")
         if not show_id:
             continue
+
+        if show_id in archive and "scraped_rich_description" in archive[show_id]:
+            show["scraped_rich_description"] = archive[show_id]["scraped_rich_description"]
+
         archive[show_id] = show
     return archive
 
@@ -130,15 +187,15 @@ def create_ical_calendar(archive_data):
         try:
             event = Event()
             title = item.get("title") or "Fuchs2 Event"
-            description = item.get("description") or item.get("about") or item.get("shortDescription") or ""
             slug = item.get("slug") or ""
 
-            # Bezpečné a přesné vytažení data přímo podle tvé struktury v archive.json
+            # Prioritize our newly cached deep-scraped rich summary text
+            description = item.get("scraped_rich_description") or item.get("description") or item.get("about") or ""
+
             scheduling = item.get("scheduling", {})
             config = scheduling.get("config", {}) if isinstance(scheduling, dict) else {}
             raw_date = config.get("startDate") if isinstance(config, dict) else None
 
-            # Fallback na rekurzi, kdyby Wix u nějaké specifické komponenty strukturu ohnul
             if not raw_date:
                 def find_iso_date(node):
                     if isinstance(node, str) and re.match(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', node):
@@ -158,23 +215,24 @@ def create_ical_calendar(archive_data):
                 continue
 
             try:
-                # Rozdělení podle 'T' odřízne čas a vezme čisté datum YYYY-MM-DD
                 clean_date_str = str(raw_date).split("T")[0]
                 parsed_date = datetime.strptime(clean_date_str, "%Y-%m-%d")
             except Exception:
                 continue
 
-            event.name = f"Fuchs2: {str(title).strip()}"
-            clean_desc = re.sub('<[^<]+?>', '', str(description)).strip()
+            event.name = f"{str(title).strip()}"
 
             description_parts = []
+            clean_desc = str(description).strip()
+
+            # Insert the entire extracted text block into the iCal description array
             if clean_desc and clean_desc != "None":
                 description_parts.append(clean_desc)
+
             if slug:
-                description_parts.append(f"Event link: https://www.fuchs2.cz/event-details/{slug}")
+                description_parts.append(f"Event link: https://www.fuchs2.cz/events/{slug}")
 
             event.description = "\n\n".join(description_parts)
-
             event.location = "Fuchs2, Ostrov Štvanice 1125, Prague, Czech republic"
             event.begin = parsed_date
             event.make_all_day()
@@ -200,13 +258,13 @@ if __name__ == "__main__":
     print(f"[INFO] Successfully fetched and parsed {len(parsed_wix_data)} items from live website.")
 
     if parsed_wix_data:
-        updated_archive = merge_and_sync(master_archive, parsed_wix_data)
-        print(f"[INFO] Master archive now contains {len(updated_archive)} records.")
-        save_archive(updated_archive)
-        create_ical_calendar(updated_archive)
-    else:
-        print("[WARNING] Zero live items parsed. Fallback triggered.")
-        if master_archive:
-            create_ical_calendar(master_archive)
+        master_archive = merge_and_sync(master_archive, parsed_wix_data)
+        print(f"[INFO] Master archive now contains {len(master_archive)} records.")
+
+    if master_archive:
+        # Run deep HTML scan pass to automatically populate and cache descriptions
+        master_archive = discover_rich_descriptions(master_archive)
+        save_archive(master_archive)
+        create_ical_calendar(master_archive)
 
     print("[END] Processing completed.")
