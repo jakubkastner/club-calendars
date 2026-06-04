@@ -1,0 +1,214 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260528
+DESCRIPTION:Website Info: https://bikejesus.com/#event-778
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Člověk v tísni Praha - 30 let: Duben v Pešti\, DBLV\, DJ Turban
+UID:634e133e-911a-4e08-8093-7f475c99fb05@634e.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260605
+DESCRIPTION:Tickets: https://ra.co/events/2427741\n\nWebsite Info: https://bikejesus.com/#event-790
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: GARDEN + REVO: PICKLES 3RD ANNIVERSARY with mojo\, NCOL\, CEREAL
+UID:886ff0a6-071b-4401-9379-3dd06e89bfba@886f.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260921
+DESCRIPTION:Facebook Event: https://fb.me/e/5H4zr2Qs0\n\nTickets: https://goout.net/cs/listky/h3nce/ebfkb/\n\nWebsite Info: https://bikejesus.com/#event-736
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: H3NCE
+UID:cb3ddb45-630f-40b6-bec4-8a095512dc65@cb3d.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260714
+DESCRIPTION:Facebook Event: https://fb.me/e/5YcoqdZlZ\n\nTickets: 0vHPLhud_hgQE7y2CLzm21QQYi_aem_0Fbn6D97ibOiFgXanN0HuA\n\nWebsite Info: https://bikejesus.com/#event-784
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Starbenders
+UID:7c68d759-ae34-483f-ab81-943c1f0c6049@7c68.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260605
+DESCRIPTION:Tickets: https://ra.co/events/2420518\n\nWebsite Info: https://bikejesus.com/#event-789
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Lab Of Groove
+UID:68954794-e48c-4eff-a71d-a91b4980237a@6895.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260618
+DESCRIPTION:Website Info: https://bikejesus.com/#event-794
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Zlatý Terer 2026
+UID:b56662c3-b5d5-4350-bd2a-8f67e0067f1f@b566.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20261129
+DESCRIPTION:Facebook Event: https://fb.me/e/69AClifJl\n\nTickets: https://goout.net/cs/rikas/szatoiy/\n\nWebsite Info: https://bikejesus.com/#event-802
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Rikas
+UID:6066ac6c-f2ec-4e52-931d-285d890a92e9@6066.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260615
+DESCRIPTION:Facebook Event: https://fb.me/e/a6QrycLa0\n\nTickets: https://goout.net/cs/listky/agriculture+support-healing-wound/hvqjb/\n\nWebsite Info: https://bikejesus.com/#event-793
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Agriculture\, Healing Wound /live
+UID:513a2edb-abfe-45c1-8814-0de6edd7578f@513a.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260531
+DESCRIPTION:Facebook Event: https://fb.me/e/5LDycdpS8\n\nTickets: https://docs.google.com/forms/d/e/1FAIpQLSc1FpRxNw0Orb2G62gpc7_mAHdh_aq59SapENlbsffwocheAg/viewform?fbclid=IwY2xjawRgEhdleHRuA2FlbQIxMABicmlkETFQekUydUR3WFlvSWhFdTFLc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHoJ4O-FsrhBq926oHGWqX172_O7JUrsZJFB6rLkZfKMJYdz-49XaNTy9mylC_aem_hJGvZFhkIs9ux4GxfJ81pQ\n\nWebsite Info: https://bikejesus.com/#event-781
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: AutoMat: Světová cyklojízda 2026
+UID:3d3d3858-e95a-4eca-a0f8-e9ea7ded5abd@3d3d.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260620
+DESCRIPTION:Tickets: https://www.fairplay.events/cs/miladafest-leto-26-2026-39ea\n\nWebsite Info: https://bikejesus.com/#event-797
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: MILADAfest
+UID:ed7a38cc-a5cb-4f0c-bc86-044cffa61ab1@ed7a.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260929
+DESCRIPTION:Facebook Event: https://fb.me/e/3GQXORIYT\n\nTickets: https://fource.cz/cs/events/the-lemon-twigs-26/\n\nWebsite Info: https://bikejesus.com/#event-782
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: The Lemon Twigs /live
+UID:1a7388bb-f5b9-4e5c-987e-e477363eb9af@1a73.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260619
+DESCRIPTION:Facebook Event: https://fb.me/e/6Rwjk4P1e\n\nTickets: https://www.ticketlive.cz/cs/event/wanted-tour-praha-19-06-2026\n\nWebsite Info: https://bikejesus.com/#event-783
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: HORHI | WANTED TOUR!
+UID:e0f0dec8-03c8-4bf1-8b98-c0c294df9b34@e0f0.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260612
+DESCRIPTION:Facebook Event: https://fb.me/e/b52DLdQqO\n\nTickets: https://ra.co/events/2444311\n\nWebsite Info: https://bikejesus.com/#event-791
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Fullhouse: Pornstar Martini discothek 1st Anniversary and more
+UID:468e2500-8939-4e93-96f8-d6e143872cd3@468e.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20261110
+DESCRIPTION:Facebook Event: https://fb.me/e/4qIb90agQ\n\nTickets: https://www.livenation.cz/event/deary-prague-tickets-edp1658298\n\nWebsite Info: https://bikejesus.com/#event-785
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: deary /live
+UID:83326b7e-76e0-4a27-bd1c-f0082fd4365c@8332.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260529
+DESCRIPTION:Website Info: https://bikejesus.com/#event-779
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: AMOREX meets EXTRAVGNZA
+UID:16c699a9-9b57-476b-9922-35d13a5e1cf8@16c6.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20270213
+DESCRIPTION:Facebook Event: https://fb.me/e/bePNHj2hE\n\nTickets: https://goout.net/cs/dagny/szykljy/\n\nWebsite Info: https://bikejesus.com/#event-786
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Dagny (NO)
+UID:b0948961-3f33-4dbd-80e8-6d8089165ec2@b094.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260530
+DESCRIPTION:Website Info: https://bikejesus.com/#event-780
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Queeriety Rodeo
+UID:60aa6d31-9c38-4813-96e1-126035e7eb57@60aa.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260619
+DESCRIPTION:Facebook Event: https://fb.me/e/6UbQRy4oR\n\nTickets: https://ra.co/events/2449235\n\nWebsite Info: https://bikejesus.com/#event-796
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: REVO: Spirála: A+++\, Ashen Foals\, Edits\, Adamatron\, VNNUK
+UID:941ec27b-23a1-489e-ac36-14dc910014a5@941e.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260619
+DESCRIPTION:Website Info: https://bikejesus.com/#event-795
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Omnibeats
+UID:4861e160-5f84-4bbb-9491-009e3c88989a@4861.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260613
+DESCRIPTION:Tickets: https://ra.co/events/2445270\n\nWebsite Info: https://bikejesus.com/#event-792
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Karate club Vltavská skatepark x Bike Jesus
+UID:777e91eb-6068-41d0-9585-7e95c167492a@777e.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260705
+DESCRIPTION:Facebook Event: https://fb.me/e/6qadgpmQr\n\nTickets: https://goout.net/cs/listky/author-and-punisher+king-yosef/cbfkb/\n\nWebsite Info: https://bikejesus.com/#event-730
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Author & Punisher ✚ King Yosef /live
+UID:f81d2cad-7222-4e73-883c-953df566e654@f81d.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20261027
+DESCRIPTION:Facebook Event: https://fb.me/e/9mEq8v7LA\n\nTickets: https://goout.net/cs/acres-the-host-uk-eu-tour/szysoiy/\n\nWebsite Info: https://bikejesus.com/#event-775
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Acres + Special guests: Wayside + What Lies Below + Lifespark
+UID:7f6d85f9-379f-480b-bc67-7e5f04a2a157@7f6d.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260603
+DESCRIPTION:Facebook Event: https://fb.me/e/4vxZWFKEQ\n\nWebsite Info: https://bikejesus.com/#event-788
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: ARTSEMESTR AFTERPARTY
+UID:5e443301-0f4b-4efb-91b4-2e098fe36522@5e44.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260625
+DESCRIPTION:Website Info: https://bikejesus.com/#event-798
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Klara Black: debut EP - everything I wanted to say but never did (křest)
+UID:4bd1a1cf-871a-4b1c-9a21-87ca0b0cc90a@4bd1.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260626
+DESCRIPTION:Website Info: https://bikejesus.com/#event-799
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Love by Fatty M
+UID:2ef22df5-5c71-4bbf-a4c5-e8f13406bd48@2ef2.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260815
+DESCRIPTION:Facebook Event: https://fb.me/e/4c0fkqFKy\n\nTickets: https://goout.net/cs/show-me-the-body/szsiwjy/\n\nWebsite Info: https://bikejesus.com/#event-801
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Show Me The Body /live
+UID:f5e78cfc-d46f-4274-9c2a-b1ee2cc88769@f5e7.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260611
+DESCRIPTION:Facebook Event: https://fb.me/e/6ZYK2jya5\n\nTickets: https://goout.net/en/tickets/a-burial-at-sea-newhvn+made-by-the-fire/tnljb/\n\nWebsite Info: https://bikejesus.com/#event-729
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: A Burial At Sea // Newhvn (UK) ✚ Madebythefire /live
+UID:b1d5265e-c0ab-455c-9b9a-ff4b1e8f5cb1@b1d5.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260627
+DESCRIPTION:Facebook Event: https://fb.me/e/aZxwO3l2r\n\nTickets: https://ra.co/events/2451952\n\nWebsite Info: https://bikejesus.com/#event-800
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: FOLYA X LICK - Outdoor/Indoor: Raketa95\, Ironboard\, Rishi Sippy\, Feenicks\, Dash and more
+UID:f88a2016-632d-484f-bfa0-51e7edccf199@f88a.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260614
+DESCRIPTION:Facebook Event: https://fb.me/e/6G7F7aiUY\n\nTickets: https://www.livenation.cz/event/nightbus-prague-tickets-edp1656229\n\nWebsite Info: https://bikejesus.com/#event-734
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Nightbus
+UID:fc3bd496-9f99-4ac8-bb6d-c49019172e77@fc3b.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20261121
+DESCRIPTION:Facebook Event: https://fb.me/e/4BZrQWDBz\n\nTickets: https://goout.net/cs/gurriers%2Bsupport-enola-gay/szuuoiy/\n\nWebsite Info: https://bikejesus.com/#event-787
+LOCATION:Bike Jesus\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Bike Jesus: Gurriers (IE) + Support: Enola Gay
+UID:e47fe0bf-61ee-4e96-9c0e-3b64a0d1a93f@e47f.org
+END:VEVENT
+END:VCALENDAR
