@@ -95,9 +95,9 @@ def create_ical_calendar(archive_data):
             clean_title = raw_title.strip()
 
             if raw_subtitle and raw_subtitle.strip():
-                event.name = f"Bike Jesus: {clean_title} | {raw_subtitle.strip()}"
+                event.name = f"{clean_title} | {raw_subtitle.strip()}"
             else:
-                event.name = f"Bike Jesus: {clean_title}"
+                event.name = f"{clean_title}"
 
             description_parts = []
             if raw_desc and raw_desc.strip():
