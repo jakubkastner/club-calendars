@@ -1,35 +1,13 @@
-import requests
+import urllib.request
 import json
 import os
 import re
-from datetime import datetime, date
-from html.parser import HTMLParser
+from datetime import datetime
 from ics import Calendar, Event
 
 ARCHIVE_FILE = "archive.json"
 CALENDAR_FILE = "calendar.ics"
-
-class WixWarmupParser(HTMLParser):
-    """Simple HTML parser to locate Wix warmup data script tag."""
-    def __init__(self):
-        super().__init__()
-        self.in_warmup_script = False
-        self.json_content = None
-
-    def handle_starttag(self, tag, attrs):
-        if tag == 'script':
-            attr_dict = dict(attrs)
-            # Wix places dynamic application data in scripts containing warmup-data
-            if attr_dict.get('id') == 'wix-warmup-data':
-                self.in_warmup_script = True
-
-    def handle_data(self, data):
-        if self.in_warmup_script:
-            self.json_content = data
-
-    def handle_endtag(self, tag):
-        if tag == 'script':
-            self.in_warmup_script = False
+TARGET_URL = "https://www.fuchs2.cz/shows"
 
 def load_archive():
     if os.path.exists(ARCHIVE_FILE):
@@ -40,7 +18,7 @@ def load_archive():
         except Exception as e:
             print(f"Error reading archive, starting fresh: {e}")
             return {}
-    print("No archive found for Fuchs2. Creating fresh timeline database.")
+    print("No archive found for Fuchs2. Creating a new local history file.")
     return {}
 
 def save_archive(archive_data):
@@ -51,132 +29,184 @@ def save_archive(archive_data):
     except Exception as e:
         print(f"Failed to save archive: {e}")
 
-def fetch_wix_events():
-    url = "https://www.fuchs2.cz/shows"
+def fetch_html_content(url):
+    print(f"Downloading live HTML from {url}...")
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Connection": "keep-alive"
     }
-    print(f"Scraping live Fuchs2 interface from: {url}")
     try:
-        response = requests.get(url, headers=headers)
-        if response.status_code != 200:
-            print(f"Error: Server responded with status code {response.status_code}")
-            return []
-
-        # Parse the HTML content to extract the raw json payload
-        parser = WixWarmupParser()
-        parser.feed(response.text)
-
-        if not parser.json_content:
-            print("Critical: Wix warmup data blocks were not discovered in the HTML body.")
-            return []
-
-        data = json.loads(parser.json_content)
-
-        # Navigate through deep Wix structure to extract the dynamic event listings
-        # Usually stored inside appsData -> tpaComponents or general component descriptors
-        raw_shows = []
-        apps_data = data.get("appsData", {})
-
-        for app_id, app_content in apps_data.items():
-            for instance_id, instance_content in app_content.items():
-                if isinstance(instance_content, dict) and "shows" in instance_content:
-                    raw_shows = instance_content["shows"]
-                    break
-            if raw_shows:
-                break
-
-        # Fallback inspection if structure shifts slightly
-        if not raw_shows and "state" in data:
-            # Look inside generic app states if primary mapping fails
-            for key, val in data.get("state", {}).items():
-                if isinstance(val, dict) and "shows" in val:
-                    raw_shows = val["shows"]
-                    break
-
-        return raw_shows if isinstance(raw_shows, list) else []
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=15) as response:
+            html_data = response.read().decode('utf-8', errors='ignore')
+            print(f"[DEBUG] Downloaded HTML size: {len(html_data)} characters.")
+            return html_data
     except Exception as e:
-        print(f"Network processing or parsing failure: {e}")
+        print(f"[ERROR] Failed to download HTML content: {e}")
+        return ""
+
+def parse_wix_events(html_content):
+    if not html_content:
+        print("[ERROR] Cannot parse events: HTML content is completely empty.")
         return []
 
-def merge_and_sync(archive, live_events):
-    current_date_str = date.today().isoformat()
-    live_ids = set()
+    print("Analyzing target HTML markup for internal Wix application state data layers...")
+    extracted_items = []
 
+    warmup_match = re.search(r'<script[^>]*id="wix-warmup-data"[^>]*>(.*?)</script>', html_content, re.DOTALL)
+    if warmup_match:
+        print("[DEBUG] Step 1 Success: Found <script id=\"wix-warmup-data\"> block.")
+        raw_json_str = warmup_match.group(1).strip()
+
+        try:
+            parsed_warmup = json.loads(raw_json_str)
+            print("[DEBUG] Step 2 Success: Safely decoded raw string into a valid JSON object.")
+
+            matched_nodes_count = 0
+
+            def search_nodes(node):
+                nonlocal matched_nodes_count
+                if isinstance(node, dict):
+                    has_id = "_id" in node or "id" in node
+                    has_title = "title" in node or "name" in node or "eventName" in node
+
+                    has_any_date = False
+                    for dict_key in node.keys():
+                        key_lower = str(dict_key).lower()
+                        if "date" in key_lower or "start" in key_lower:
+                            has_any_date = True
+                            break
+
+                    if has_id and has_title and has_any_date:
+                        if isinstance(node.get("title") or node.get("name") or node.get("eventName"), str) and len(str(node.get("_id") or node.get("id"))) > 5:
+                            extracted_items.append(node)
+                            matched_nodes_count += 1
+
+                    for key, val in node.items():
+                        search_nodes(val)
+                elif isinstance(node, list):
+                    for item in node:
+                        search_nodes(item)
+
+            search_nodes(parsed_warmup)
+            print(f"[DEBUG] Step 3 Completed: JSON tree traversal finished. Found {matched_nodes_count} flexible event components.")
+
+        except json.JSONDecodeError as je:
+            print(f"[ERROR] Step 2 Failed: JSON structure unparsable. Error: {je}")
+        except Exception as e:
+            print(f"[ERROR] Step 3 Failed: Exception encountered during JSON tree traversal: {e}")
+    else:
+        print("[WARNING] Step 1 Failed: Could not locate `<script id=\"wix-warmup-data\">` tag.")
+
+    valid_events = []
+    for item in extracted_items:
+        if isinstance(item, dict):
+            event_id = item.get("_id") or item.get("id")
+            if event_id and event_id not in [e.get("_id") or e.get("id") for e in valid_events]:
+                if "title" not in item and "eventName" in item:
+                    item["title"] = item["eventName"]
+                elif "title" not in item and "name" in item:
+                    item["title"] = item["name"]
+                valid_events.append(item)
+
+    print(f"[DEBUG] Validation complete. Total valid unique events prepared: {len(valid_events)}")
+    return valid_events
+
+def merge_and_sync(archive, live_events):
     for show in live_events:
-        # Wix typically identifies items via 'id' or 'id_' key strings
-        show_id = str(show.get("id") or show.get("id_") or "")
+        show_id = str(show.get("_id") or show.get("id") or "")
         if not show_id:
             continue
-        live_ids.add(show_id)
         archive[show_id] = show
-
-    # Since Wix loads things dynamically over multiple pages, we ONLY clean up cancelled
-    # events if they are explicitly returned in the active block but formatted as deleted.
-    # We do NOT drop unreturned upcoming events because they might just be on page 2.
     return archive
 
 def create_ical_calendar(archive_data):
     cal = Calendar()
+    parsed_count = 0
 
     for show_id, item in archive_data.items():
         try:
             event = Event()
+            title = item.get("title") or "Fuchs2 Event"
+            description = item.get("description") or item.get("about") or item.get("shortDescription") or ""
+            slug = item.get("slug") or ""
 
-            # Wix fields usually capitalize or structure names cleanly
-            title = item.get("title") or item.get("Title") or "Fuchs2 Event"
-            subtitle = item.get("subtitle") or item.get("Subtitle") or ""
-            description = item.get("description") or item.get("Description") or ""
+            # Bezpečné a přesné vytažení data přímo podle tvé struktury v archive.json
+            scheduling = item.get("scheduling", {})
+            config = scheduling.get("config", {}) if isinstance(scheduling, dict) else {}
+            raw_date = config.get("startDate") if isinstance(config, dict) else None
 
-            # Extract clean date (Format usually: 2026-06-15T00:00:00.000Z or similar)
-            raw_date = item.get("date") or item.get("Date")
+            # Fallback na rekurzi, kdyby Wix u nějaké specifické komponenty strukturu ohnul
+            if not raw_date:
+                def find_iso_date(node):
+                    if isinstance(node, str) and re.match(r'^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}', node):
+                        return node
+                    elif isinstance(node, dict):
+                        for val in node.values():
+                            res = find_iso_date(val)
+                            if res: return res
+                    elif isinstance(node, list):
+                        for val in node:
+                            res = find_iso_date(val)
+                            if res: return res
+                    return None
+                raw_date = find_iso_date(item)
+
             if not raw_date:
                 continue
 
-            clean_date_str = raw_date.split("T")[0]
-            parsed_date = datetime.strptime(clean_date_str, "%Y-%m-%d")
+            try:
+                # Rozdělení podle 'T' odřízne čas a vezme čisté datum YYYY-MM-DD
+                clean_date_str = str(raw_date).split("T")[0]
+                parsed_date = datetime.strptime(clean_date_str, "%Y-%m-%d")
+            except Exception:
+                continue
 
-            if subtitle.strip():
-                event.name = f"Fuchs2: {title.strip()} | {subtitle.strip()}"
-            else:
-                event.name = f"Fuchs2: {title.strip()}"
-
-            # Clean HTML tags out of description if Wix left them inside
-            clean_desc = re.sub('<[^<]+?>', '', description).strip()
+            event.name = f"Fuchs2: {str(title).strip()}"
+            clean_desc = re.sub('<[^<]+?>', '', str(description)).strip()
 
             description_parts = []
-            if clean_desc:
+            if clean_desc and clean_desc != "None":
                 description_parts.append(clean_desc)
+            if slug:
+                description_parts.append(f"Event link: https://www.fuchs2.cz/event-details/{slug}")
 
-            # Append permanent link helper
-            description_parts.append(f"More info: https://www.fuchs2.cz/shows")
             event.description = "\n\n".join(description_parts)
 
-            event.location = "Fuchs2, Ostrov Štvanice 1125, Prague, Czechia"
+            event.location = "Fuchs2, Ostrov Štvanice 1125, Prague, Czech republic"
             event.begin = parsed_date
             event.make_all_day()
 
             cal.events.add(event)
+            parsed_count += 1
 
         except Exception as err:
-            print(f"Skipped parsing event ID {show_id}: {err}")
+            print(f"[ERROR] Skipped parsing iCal event ID {show_id}: {err}")
             continue
 
     with open(CALENDAR_FILE, 'w', encoding='utf-8') as f:
         f.writelines(cal.serialize_iter())
-    print(f"Success: iCal file compiled into '{CALENDAR_FILE}'")
+    print(f"Success: iCal file compiled with {parsed_count} events into '{CALENDAR_FILE}'")
 
 if __name__ == "__main__":
-    print("[START] Running Fuchs2 Dynamic HTML Ingestion Engine...")
+    print("[START] Running Fuchs2 Automated Online Scraper Engine...")
 
     master_archive = load_archive()
-    live_wix_data = fetch_wix_events()
-    print(f"[INFO] Fetched {len(live_wix_data)} current front-page records from Wix.")
+    live_html = fetch_html_content(TARGET_URL)
+    parsed_wix_data = parse_wix_events(live_html)
 
-    updated_archive = merge_and_sync(master_archive, live_wix_data)
-    print(f"[INFO] Master archive contains {len(updated_archive)} total historical records.")
+    print(f"[INFO] Successfully fetched and parsed {len(parsed_wix_data)} items from live website.")
 
-    save_archive(updated_archive)
-    create_ical_calendar(updated_archive)
+    if parsed_wix_data:
+        updated_archive = merge_and_sync(master_archive, parsed_wix_data)
+        print(f"[INFO] Master archive now contains {len(updated_archive)} records.")
+        save_archive(updated_archive)
+        create_ical_calendar(updated_archive)
+    else:
+        print("[WARNING] Zero live items parsed. Fallback triggered.")
+        if master_archive:
+            create_ical_calendar(master_archive)
 
-    print("[END] Operational lifecycle closed.")
+    print("[END] Processing completed.")
