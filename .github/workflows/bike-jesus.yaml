@@ -27,8 +27,8 @@ jobs:
     - name: Execute API ingestion script
       # Changing directory to bike-jesus and running the updated script name
       run: |
-        cd bike-jesus
-        python get.py
+        cd scripts
+        python bike-jesus.py
 
     - name: Commit and push updated files (Calendar + Archive)
       # Working paths adjusted to target your specific folder structure

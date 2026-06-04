@@ -27,8 +27,8 @@ jobs:
     - name: Execute Fuchs2 Parser script
       # Change directory to fuchs2 and run the script
       run: |
-        cd fuchs2
-        python get.py
+        cd scripts
+        python fuchs2.py
 
     - name: Commit and push updated files (Calendar + Archive)
       run: |
