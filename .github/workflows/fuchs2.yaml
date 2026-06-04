@@ -34,7 +34,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action Bot"
-        git add fuchs2/calendar.ics fuchs2/archive.json
-        git checkout -b data || git checkout data
+        git fetch origin
+        git checkout data || git checkout -b data origin/data || git checkout -b data
+        git add fuchs2-calendar.ics fuchs2-archive.json
         git commit -m "Automated Fuchs2 database & calendar update [skip ci]" || exit 0
         git push

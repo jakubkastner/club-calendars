@@ -35,7 +35,8 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action Bot"
+        git fetch origin
+        git checkout data || git checkout -b data origin/data || git checkout -b data
         git add bike-jesus-calendar.ics bike-jesus-archive.json
-        git checkout -b data || git checkout data
         git commit -m "Automated database & calendar update [skip ci]" || exit 0
         git push
