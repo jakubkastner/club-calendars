@@ -2,129 +2,129 @@ BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:ics.py - http://git.io/lLljaA
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260620
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/gegen-prague-present-feenicks-metaraph-miss-univers-ocd-pink-concrete-spikey-lee
+DTSTART;VALUE=DATE:20260612
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/live-nation-presents-femtanyl
 LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: GEGEN PRAGUE present Feenicks ☆ Metaraph ☆ Miss Univers ☆ OCD ☆ Pink Concrete ☆ Spikey Lee
-UID:a0bb7019-3c98-4d5c-84e2-9bd85e06d708@a0bb.org
+SUMMARY:Fuchs2: LIVE NATION presents Femtanyl
+UID:b035aaae-5a88-44c8-9fa9-e79c5889cca8@b035.org
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260604
 DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/glitter-hit-x-salo-live-eq-candy-pumps
 LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
 SUMMARY:Fuchs2: GLITTER.HIT x SALO LIVE: EQ ☆ Candy Pumps
-UID:84d2e146-498f-45c1-8752-f344833a5493@84d2.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260625
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-x-miss-petty-summer-is-drag
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: F2 LIVE x MISS PETTY: Summer is Drag!
-UID:230c771c-65b6-4b29-bad4-10b9971428ec@230c.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260606
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/hereandthere-x-eerste-communie-10-year-anniversary
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: HEREANDTHERE x EERSTE COMMUNIE [10 Year Anniversary]
-UID:99167d8d-b401-409c-9072-6ba99800afb6@9916.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260809
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/heartnoize-present-chat-pile-ragana
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: HEARTNOIZE present Chat Pile ☆ Ragana
-UID:4d39f0ba-75d5-4044-bf6d-eddd0e59f24c@4d39.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260729
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/salo-live-n8noface
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: SALO LIVE: N8NOFACE
-UID:0aa73848-21ca-4ccb-b883-9d5b1c1db852@0aa7.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260612
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/live-nation-presents-femtanyl
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: LIVE NATION presents Femtanyl
-UID:4332ef1a-59e7-4f8a-8bf6-5aec29991346@4332.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260820
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-open-air-bert-and-friends-madhouse-express-anna-vaverkova
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: F2 LIVE OPEN AIR:  Bert and Friends ★ Madhouse Express ★ Anna Vaverková
-UID:140d46ee-22c5-4e1b-9a19-72a9aaa67eb1@140d.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260605
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/gutt3rclub-brodinski-b2b-slikback-kewu-domizako-bols-slob-b2b-taipei9000
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: GUTT3RCLUB: Brodinski b2b Slikback ☆ Kewu ☆ Domizako ☆ BoLs/sLoB b2b Taipei9000
-UID:73d3d208-eb19-4ffe-9e48-446beba05290@73d3.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260821
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-open-air-x-ugot-bearded-legend-dusan-vlk-cringe-prince
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: F2 LIVE OPEN AIR x UGOT: Bearded Legend ★ Dušan Vlk ★ Cringe Prince
-UID:4f12682b-092b-4077-9c2c-538c289d3a63@4f12.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260910
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/salo-live-morwan-robovi-trotoara
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: SALO LIVE: Morwan ☆ Robovi Trotoara
-UID:fa8de6b3-694e-494c-9a03-318973d7d54c@fa8d.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260802
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-la-securite
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: F2 LIVE: La Sécurité
-UID:d14e6065-b96d-4e72-afb6-9ee6397c50ae@d14e.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260627
-DESCRIPTION:☆ 23:00 SWINE DJS\n☆ 00:30 LUSH LATA\n☆ 02:00 GENOSIDRA\n☆ 04:00 CRRDR\n\nEvent link: https://www.fuchs2.cz/event-details/latin-core-crrdr-genosidra-lush-lata-swine-daily-djs
-LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: LATIN CORE: CRRDR ☆ Genosidra ☆ Lush Lata ☆ Swine Daily DJs
-UID:7188dd27-ef3e-4a57-a0dd-156fda3a4c49@7188.org
+UID:709f2c09-5301-48bd-93d7-12ad1f12a6f4@709f.org
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260612
 DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/fullhouse-cravo-nina-farrina-jauri-midirama-raphael-kosmos
 LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
 SUMMARY:Fuchs2: FULLHOUSE: Cravo ☆ Nina Farrina ☆ Jauri ☆ Midirama ☆ Raphael Kosmos
-UID:3b0d22e0-d8ca-4fdf-b98d-2648ee4536d3@3b0d.org
+UID:ea17d2f3-6ba3-4280-9b6d-3951548949e6@ea17.org
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260822
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-open-air-shimmi-similivinlife-more
+DTSTART;VALUE=DATE:20260627
+DESCRIPTION:☆ 23:00 SWINE DJS\n☆ 00:30 LUSH LATA\n☆ 02:00 GENOSIDRA\n☆ 04:00 CRRDR\n\nEvent link: https://www.fuchs2.cz/event-details/latin-core-crrdr-genosidra-lush-lata-swine-daily-djs
 LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: F2 LIVE OPEN AIR: Shimmi ★ Similivinlife & more
-UID:f41dc139-357f-4fa1-8cdd-cc5785549dd4@f41d.org
+SUMMARY:Fuchs2: LATIN CORE: CRRDR ☆ Genosidra ☆ Lush Lata ☆ Swine Daily DJs
+UID:c7ebf003-c84c-48fa-ae5e-44cafe65896f@c7eb.org
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20260624
-DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-debasement
+DTSTART;VALUE=DATE:20260910
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/salo-live-morwan-robovi-trotoara
 LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
-SUMMARY:Fuchs2: F2 LIVE: deBasement
-UID:cc0f0233-dfa3-4476-a355-f13c9c41a991@cc0f.org
+SUMMARY:Fuchs2: SALO LIVE: Morwan ☆ Robovi Trotoara
+UID:d68ac98d-2c24-44c2-baad-e46a61615cfc@d68a.org
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260929
 DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-vtoroi-ka
 LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
 SUMMARY:Fuchs2: F2 LIVE: Vtoroi Ka
-UID:b143cce3-0d81-4e36-92bb-cce51e86f021@b143.org
+UID:5a88a0ba-3b36-476b-ad31-ad8f21761638@5a88.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260605
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/gutt3rclub-brodinski-b2b-slikback-kewu-domizako-bols-slob-b2b-taipei9000
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: GUTT3RCLUB: Brodinski b2b Slikback ☆ Kewu ☆ Domizako ☆ BoLs/sLoB b2b Taipei9000
+UID:c478974c-149f-4e60-ad3c-d01c87514da5@c478.org
 END:VEVENT
 BEGIN:VEVENT
 DTSTART;VALUE=DATE:20260626
 DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/veselka-tweeman-vani-vachi-nastya-muravyova-nina-farrina-miss-universe-transmisia
 LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
 SUMMARY:Fuchs2: VESELKA: Tweeman ☆ Vani Vachi ☆ Nastya Muravyova ☆ Nina Farrina ☆ Miss Universe ☆ TRANSmisia
-UID:3ba0f955-919e-43da-a6e7-85b11e30e17f@3ba0.org
+UID:487ed2ef-ade0-4287-a985-ee53e3393763@487e.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260606
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/hereandthere-x-eerste-communie-10-year-anniversary
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: HEREANDTHERE x EERSTE COMMUNIE [10 Year Anniversary]
+UID:542e6904-4ed1-4ef6-a7fb-c607b264f14f@542e.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260820
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-open-air-bert-and-friends-madhouse-express-anna-vaverkova
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: F2 LIVE OPEN AIR:  Bert and Friends ★ Madhouse Express ★ Anna Vaverková
+UID:185382f2-a484-4a92-a23f-337cf406858d@1853.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260822
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-open-air-shimmi-similivinlife-more
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: F2 LIVE OPEN AIR: Shimmi ★ Similivinlife & more
+UID:965f051c-cd2e-49f6-9f1b-d0b5016bebfe@965f.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260624
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-debasement
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: F2 LIVE: deBasement
+UID:27d69515-9ebd-4313-88f0-8081c86591ca@27d6.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260809
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/heartnoize-present-chat-pile-ragana
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: HEARTNOIZE present Chat Pile ☆ Ragana
+UID:b312c5d9-9dc8-48a4-80a1-dcdd6e51391e@b312.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260620
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/gegen-prague-present-feenicks-metaraph-miss-univers-ocd-pink-concrete-spikey-lee
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: GEGEN PRAGUE present Feenicks ☆ Metaraph ☆ Miss Univers ☆ OCD ☆ Pink Concrete ☆ Spikey Lee
+UID:ca2ee664-7bc4-4dd8-a1cf-2544e665e0f9@ca2e.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260625
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-x-miss-petty-summer-is-drag
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: F2 LIVE x MISS PETTY: Summer is Drag!
+UID:ee43b522-9287-4718-92b9-4b6b938f51ad@ee43.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260821
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-open-air-x-ugot-bearded-legend-dusan-vlk-cringe-prince
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: F2 LIVE OPEN AIR x UGOT: Bearded Legend ★ Dušan Vlk ★ Cringe Prince
+UID:8bddbad3-66bc-4c08-974d-3e33c98b45b8@8bdd.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260729
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/salo-live-n8noface
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: SALO LIVE: N8NOFACE
+UID:c4629fc3-864b-4e4a-8e0f-c977cc6eef13@c462.org
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20260802
+DESCRIPTION:Event link: https://www.fuchs2.cz/event-details/f2-live-la-securite
+LOCATION:Fuchs2\, Ostrov Štvanice 1125\, Prague\, Czech republic
+SUMMARY:Fuchs2: F2 LIVE: La Sécurité
+UID:4753526a-089b-4e74-82e4-3567a8d278ef@4753.org
 END:VEVENT
 END:VCALENDAR
